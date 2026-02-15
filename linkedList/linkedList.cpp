@@ -4,13 +4,21 @@
 struct node {
   int value;
   struct node *link;
-}*head = NULL,*clown,*printer;  
+}*head = NULL,*clown,*printer; 
+  void addBegan(){
+    struct node *began = (struct node *)(malloc(sizeof(struct node)));
+    printf("Enter begun value : ");
+    scanf("%d",&began->value);
+    began->link=head;
+    head=began;
+  }
   void desiredLoc(){
     int n;
     printf("Enter the location : ");
     scanf("%d",&n);
     if(n<=1){
       addBegan();
+      return;
     }
     struct node *desLoc = (struct node *)(malloc(sizeof(struct node)));
     printf("Enter value : ");
@@ -21,13 +29,6 @@ struct node {
     }
     desLoc->link=clown->link;
     clown->link=desLoc;
-  }
-  void addBegan(){
-    struct node *began = (struct node *)(malloc(sizeof(struct node)));
-    printf("Enter begun value : ");
-    scanf("%d",&began->value);
-    began->link=head;
-    head=began;
   }
   void addEnd(){
     struct node *end=(struct node *)(malloc(sizeof(struct node)));
