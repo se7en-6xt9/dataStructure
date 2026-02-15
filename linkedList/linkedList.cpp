@@ -4,11 +4,38 @@
 struct node {
   int value;
   struct node *link;
-}*head = NULL;
+}*head = NULL,*clown,*printer;
+  void addBegan(){
+    struct node *began = (struct node *)(malloc(sizeof(struct node)));
+    printf("Enter begun value : ");
+    scanf("%d",&began->value);
+    began->link=head;
+    head=began;
+  }
+  void addEnd(){
+    struct node *end=(struct node *)(malloc(sizeof(struct node)));
+    printf("Enter end value : ");
+    scanf("%d",&end->value);
+    printer = head;
+    while(printer->link!=NULL){
+      printer=printer->link;
+    }
+    end->link=NULL;
+    printer->link=end;
+  }
+void print(){
+  int i=1;
+  printf("Printing after operating node ..\n");
+    printer = head;
+    printf("Printing Values ...\n");
+    do{
+      printf("[%d] %d\n",i++,printer->value);
+      printer=printer->link;
+    } while((printer->link)!=NULL);
+    printf("[%d] %d",i,printer->value);
+  }
   int main(){
     int n;
-    struct node *clown;
-    struct node *printer;
     printf("Enter the number of nodes : ");
     scanf("%d",&n);
     for(int i=0; i<n; i++){
@@ -35,6 +62,14 @@ struct node {
       printf(" %d\n",printer->value);
       printer=printer->link;
     } while((printer->link)!=NULL);
-    printf(" %d",printer->value);
+    printf(" %d\n",printer->value);
+    addBegan();
+    addEnd();
+    print();
     return 0;
   }
+
+
+
+
+
