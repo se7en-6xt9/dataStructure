@@ -5,14 +5,14 @@ struct node {
   int value;
   struct node *link;
 }*head = NULL,*clown,*printer; 
-  void addBegan(){
+  void addBegan(){ //add at begin..
     struct node *began = (struct node *)(malloc(sizeof(struct node)));
     printf("Enter begun value : ");
     scanf("%d",&began->value);
     began->link=head;
     head=began;
   }
-  void desiredLoc(){
+  void desiredLoc(){ //add at desired Location...
     int n;
     printf("Enter the location : ");
     scanf("%d",&n);
@@ -30,7 +30,7 @@ struct node {
     desLoc->link=clown->link;
     clown->link=desLoc;
   }
-  void addEnd(){
+  void addEnd(){ //add at end...
     struct node *end=(struct node *)(malloc(sizeof(struct node)));
     printf("Enter end value : ");
     scanf("%d",&end->value);
@@ -41,7 +41,26 @@ struct node {
     end->link=NULL;
     printer->link=end;
   }
-void print(){
+ void delDesired(){
+   int n; 
+   clown=head;
+   printf("Enter Location you wanna delete : ");
+   scanf("%d",&n);
+   if(n==1){
+     head=head->link;
+   }
+   printf("\n");
+   for(int i=1; i<n-1; i++){
+    clown=clown->link;
+   }
+   if(clown->link->link==NULL){
+     clown->link=NULL;
+   }else{
+     clown->link=clown->link->link;
+   }
+
+ }
+void print(){ //print linkedList...
   int i=1;
     printf("Printing after operating node ..\n");
     printer = head;
@@ -83,7 +102,8 @@ void print(){
     printf(" %d\n",printer->value);
     //addBegan();
     //addEnd();
-    desiredLoc();
+    //desiredLoc();
+    delDesired();
     print();
     return 0;
   }
