@@ -9,5 +9,5 @@ print("sum(tup) : ",sum(tup))
 sorted(tup) #not work
 print("sorted(tup) : ",tup) #no change
 print(sorted(tup)) #will print in sorted order
-print(tuple(reversed(tup)))
+#print(tuple(reversed(tup)))
 

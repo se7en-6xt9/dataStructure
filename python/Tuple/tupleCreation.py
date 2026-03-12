@@ -8,3 +8,5 @@ tup1=tuple(range(10,100,5))
 print("Tuple creation via range : ",tup1)
 
 
+
+

@@ -8,4 +8,4 @@ if 3 in tup:
     print("Yes")
 if "dog" not in ("boy","Cake","Cat"):
     print("Yes")
-
+    
